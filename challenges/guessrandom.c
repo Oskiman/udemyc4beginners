@@ -9,6 +9,7 @@ int main(void)
 {
 	int guess = 0;
 	int count = 5;
+	int win_flag = 0;
 
 	// generate random number between 0 - 20
 	time_t t;
@@ -23,6 +24,7 @@ int main(void)
 		if(guess == random)
 		{
 			printf("Correct! You win!\n");
+			win_flag = 1;
 			break;
 		}
 		else if(guess < random)
@@ -36,8 +38,11 @@ int main(void)
 			count--;
 		}
 
-		printf("You have %d tries left\n");
+		printf("You have %d tries left\n", count);
 	}
+
+	if(win_flag == 0)
+		printf("You lose\n");
 
 	return 0;
 }
